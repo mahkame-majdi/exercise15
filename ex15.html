@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .container{
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            .holder{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="holder">
+                <input type="text" id="first"/>
+                <select id="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="text" id="second"/>
+                <span>=</span>
+                <p id="result"></p>
+            </div>
+            <button id="button">calculate</button>
+        </div>
+        <script>
+            var firstInput = parseInt(document.getElementById("first").value);
+            var secondInput = parseInt(document.getElementById("second").value);
+            var selectInput = document.getElementById("operator").value;
+            var result = document.getElementById("result");
+            var buttonElement = document.getElementById("button");
+            buttonElement.addEventListener("click", calculate);
+            function calculate(){
+                if ( selectInput === "+") {
+                    result.innerHTML = firstInput + secondInput;
+                }
+                else if ( selectInput === "-"){
+                    result.innerHTML = firstInput - secondInput;
+                }
+                else if ( selectInput === "*") {
+                    result.innerHTML = firstInput * secondInput;
+                }
+                else if ( selectInput === "/") {
+                    result.innerHTML = firstInput / secondInput;
+                }
+            }
+        </script>
+    </body>
+</html>
